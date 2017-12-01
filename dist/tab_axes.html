@@ -1,0 +1,91 @@
+<div class="editor-row">
+    <div class="section gf-form-group" ng-if="ctrl.panel.windRoseOptions.windRoseType == 1">
+        <h5 class="section-heading">Velocity</h5>
+        <div class="gf-form-inline">
+            <div class="gf-form">
+                <label class="gf-form-label width-10">Axis name</label>
+                <input type="text" class="gf-form-input width-10" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.axisName">
+            </div>
+        </div>
+        <div class="gf-form-inline">
+            <div class="gf-form">
+                <label class="gf-form-label width-10">Scale</label>
+                <select type="number" class="gf-form-input width-10" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.scale">
+                    <option value="linear">linear</option>
+                    <option value="square">square</option>
+                    <option value="log2">log (base 2)</option>
+                    <option value="log10">log (base 10)</option>
+                    <option value="log32">log (base 32)</option>
+                    <option value="log1024">log (base 1024)</option>
+                </select>
+            </div>
+        </div>
+        <div class="gf-form-inline">
+            <div class="gf-form">
+                <label class="gf-form-label width-10">Max V</label>
+                <input type="number" class="gf-form-input width-10" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.maxV">
+            </div>
+        </div>
+    </div>
+    <div class="section gf-form-group">
+        <h5 class="section-heading">Grid</h5>
+        <div class="gf-form-inline">
+            <div class="gf-form">
+                <label class="gf-form-label width-10">Step</label>
+                <select class="gf-form-input width-8" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.axisFrequency">
+                    <option value="15">15&deg;</option>
+                    <option value="30">30&deg;</option>
+                    <option value="45">45&deg;</option>
+                    <option value="90">90&deg;</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="section gf-form-group">
+        <h5 class="section-heading">Labels</h5>
+        <div class="gf-form-inline">
+            <div class="gf-form">
+                <label class="gf-form-label width-10 cursor-pointer" ng-click="ctrl.panel.windRoseOptions.labelDegrees = !ctrl.panel.windRoseOptions.labelDegrees">Degrees</label>
+                <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.labelDegrees}">
+                    <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.labelDegrees">
+                </label>
+            </div>
+        </div>
+        <div class="gf-form-inline">
+            <div class="gf-form">
+                <label class="gf-form-label width-10 cursor-pointer" ng-click="ctrl.panel.windRoseOptions.labelCardinalCompass = !ctrl.panel.windRoseOptions.labelCardinalCompass">Cardinal Direction Compass</label>
+                <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.labelCardinalCompass}">
+                    <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.labelCardinalCompass">
+                </label>
+            </div>
+        </div>
+        <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.labelCardinalCompass">
+            <div class="gf-form">
+                <label class="gf-form-label width-10 cursor-pointer" ng-click="ctrl.panel.windRoseOptions.labelIntercardinalCompass = !ctrl.panel.windRoseOptions.labelIntercardinalCompass">Intercardinal Direction Compass</label>
+                <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.labelIntercardinalCompass}">
+                    <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.labelIntercardinalCompass">
+                </label>
+            </div>
+        </div>
+        <div class="gf-form-inline">
+            <div class="gf-form">
+                <label class="gf-form-label width-10 cursor-pointer" ng-click="ctrl.panel.windRoseOptions.labelCompassRose = !ctrl.panel.windRoseOptions.labelCompassRose">Compass Rose</label>
+                <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.labelCompassRose}">
+                    <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.labelCompassRose">
+                </label>
+            </div>
+        </div>
+        <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.labelCompassRose">
+            <div class="gf-form">
+                <label class="gf-form-label width-10 cursor-pointer">Compass Rose Opacity (from 0 to 1)</label>
+                <input type="number" class="gf-form-input width-5" data-placement="right" ng-model="ctrl.panel.windRoseOptions.labelCompassRoseOpacity">
+            </div>
+        </div>
+        <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.labelCompassRose">
+            <div class="gf-form">
+                <label class="gf-form-label width-10 cursor-pointer">Compass Rose Size (from 0 to 1)</label>
+                <input type="number" class="gf-form-input width-5" data-placement="right" ng-model="ctrl.panel.windRoseOptions.labelCompassRoseSize">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "type": "panel",
+  "name": "WindRose",
+  "id": "n-wind-rose-panel",
+
+  "info": {
+    "description": "Wind Rose Panel for Grafana",
+    "author": {
+      "name": "Intspirit"
+    },
+    "keywords": ["windrose", "panel"],
+    "version": "1.0.0",
+    "updated": "2017-03-21"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "3.x.x",
+    "plugins": [ ]
+  }
+}

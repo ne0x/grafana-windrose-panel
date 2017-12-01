@@ -1,0 +1,226 @@
+<div class="editor-tab-with-sidemenu">
+    <aside class="edit-sidemenu-aside">
+        <ul class="edit-sidemenu">
+            <li ng-class="{active: ctrl.subTabIndex === 0}">
+                <a ng-click="ctrl.subTabIndex = 0">Draw options</a>
+            </li>
+            <li ng-class="{active: ctrl.subTabIndex === 1}">
+                <a ng-click="ctrl.subTabIndex = 1">
+                    Series overrides <span class="muted">({{ctrl.panel.seriesOverrides.length}})</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <div class="edit-tab-content" ng-if="ctrl.subTabIndex === 0">
+        <div class="section gf-form-group">
+            <h5 class="section-heading">Common</h5>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10">Wind Rose Type</label>
+                    <select class="gf-form-input width-8" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.windRoseType">
+                        <option value="1">points</option>
+                        <option value="2">pie chart</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="section gf-form-group" ng-if="ctrl.panel.windRoseOptions.windRoseType == 2">
+            <h5 class="section-heading">Chart</h5>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                        <label class="gf-form-label width-10">Number of directions</label>
+                        <select class="gf-form-input width-6" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.numOfDirections">
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                            <option value="360">360</option>
+                        </select>
+                 </div>
+            </div>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointer">Opacity<br>(from 0 to 1)</label>
+                    <input type="number" class="gf-form-input width-6" data-placement="right" ng-model="ctrl.panel.windRoseOptions.chartOpacity">
+                </div>
+            </div>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointer" ng-click="ctrl.panel.windRoseOptions.showPercents = !ctrl.panel.windRoseOptions.showPercents">Show Percents</label>
+                    <label class="checkbox-wrapper gf-form-input width-6" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.showPercents}">
+                        <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.showPercents">
+                    </label>
+                </div>
+            </div>
+            <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.showPercents">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10">Percents Position (in degrees)</label>
+                    <input class="gf-form-input width-6" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.percentsPosition">
+                </div>
+            </div>
+        </div>
+        <div class="section gf-form-group" ng-if="ctrl.panel.windRoseOptions.windRoseType == 2">
+            <h5 class="section-heading">Wind Speed</h5>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10">Step</label>
+                    <input class="gf-form-input width-8" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.windSpeedStep">
+                </div>
+            </div>
+            <div class="gf-form-inline" ng-repeat="color in ctrl.panel.windRoseOptions.chartColors">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10">Color {{$index + 1}} </label>
+                    <div class="color_container">
+                        <input class="gf-form-input width-8" ng-class="{'extra-padding': $index != 0}" colorpicker placeholder="auto" data-placement="right" ng-model="color.val">
+                        <i class="fa fa-remove" ng-click="ctrl.panel.windRoseOptions.chartColors.splice($index, 1)" ng-if="$index != 0"></i>
+                    </div>
+                    <div class="add_row_btn" ng-click="ctrl.panel.windRoseOptions.chartColors.push({val: ''})" ng-if="$index + 1 == ctrl.panel.windRoseOptions.chartColors.length">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section gf-form-group" ng-if="ctrl.panel.windRoseOptions.windRoseType == 1">
+            <h5 class="section-heading">Dots Styles</h5>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10">Gradient based on</label>
+                    <select class="gf-form-input width-10" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.gradientBasedOn">
+                        <option value="age">Age</option>
+                        <option ng-repeat="option in ctrl.customGradientFields">{{option}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="gf-form-inline" ng-repeat="color in ctrl.panel.windRoseOptions.dotColors">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10">Color {{$index + 1}}</label>
+                    <div class="color_container">
+                        <input class="gf-form-input width-10" ng-class="{'extra-padding': $index != 0}" colorpicker placeholder="auto" data-placement="right" ng-model="color.val">
+                        <i class="fa fa-remove" ng-click="ctrl.panel.windRoseOptions.dotColors.splice($index, 1)" ng-if="$index != 0"></i>
+                    </div>
+                    <div class="add_row_btn" ng-click="ctrl.panel.windRoseOptions.dotColors.push({val: ''})" ng-if="$index + 1 == ctrl.panel.windRoseOptions.dotColors.length">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10">Last Point Color</label>
+                    <input class="gf-form-input width-10" colorpicker placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.lastPointColor">
+                </div>
+            </div>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointer" ng-click="ctrl.panel.windRoseOptions.alphaBlending = !ctrl.panel.windRoseOptions.alphaBlending">Alpha Blending (based on age)</label>
+                    <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.alphaBlending}">
+                        <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.alphaBlending">
+                    </label>
+                </div>
+            </div>
+            <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.alphaBlending">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointer">Alpha Blending Min Opacity (from 0 to 1)</label>
+                    <input class="gf-form-input width-5" type="number" data-placement="right" ng-model="ctrl.panel.windRoseOptions.alphaBlendingMinOpacity">
+                </div>
+            </div>
+        </div>
+        <div class="section gf-form-group" ng-if="ctrl.panel.windRoseOptions.windRoseType == 1 || ctrl.panel.windRoseOptions.windRoseType == 3">
+            <h5 class="section-heading">PEAKs Draw Modes</h5>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointe"  ng-click="ctrl.panel.windRoseOptions.peakTypeBar = !ctrl.panel.windRoseOptions.peakTypeBar">Bars</label>
+                    <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.peakTypeBar}">
+                        <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.peakTypeBar">
+                    </label>
+                </div>
+            </div>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointe"  ng-click="ctrl.panel.windRoseOptions.peakTypeLine = !ctrl.panel.windRoseOptions.peakTypeLine">Lines</label>
+                    <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.peakTypeLine}">
+                        <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.peakTypeLine">
+                    </label>
+                </div>
+            </div>
+            <div class="gf-form-inline">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointe"  ng-click="ctrl.panel.windRoseOptions.peakTypePoints = !ctrl.panel.windRoseOptions.peakTypePoints">Points</label>
+                    <label class="checkbox-wrapper gf-form-input width-5" ng-class="{'checkbox-off': !ctrl.panel.windRoseOptions.peakTypePoints}">
+                        <input type="checkbox"  data-placement="right" ng-model="ctrl.panel.windRoseOptions.peakTypePoints">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="section gf-form-group" ng-if="ctrl.panel.windRoseOptions.windRoseType == 1 || ctrl.panel.windRoseOptions.windRoseType == 3">
+            <h5 class="section-heading">PEAKs Mode Options</h5>
+            <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.peakTypeLine">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointe">Fill</label>
+                    <select class="gf-form-input width-6" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.peakTypeLineFill">
+                        <option ng-repeat="val in [0,1,2,3,4,5,6,7,8,9,10]" value="{{val}}">{{val}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.peakTypeLine || ctrl.panel.windRoseOptions.peakTypeBar">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointe">Line Width</label>
+                    <select class="gf-form-input width-6" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.peakTypeLineWidth">
+                        <option ng-repeat="val in [0,1,2,3,4,5,6,7,8,9,10]" value="{{val}}">{{val}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="gf-form-inline" ng-if="ctrl.panel.windRoseOptions.peakTypePoints">
+                <div class="gf-form">
+                    <label class="gf-form-label width-10 cursor-pointe">Point Radius</label>
+                    <select class="gf-form-input width-6" placeholder="auto" data-placement="right" ng-model="ctrl.panel.windRoseOptions.peakTypePointsRadius">
+                        <option ng-repeat="val in [1,2,3,4,5,6,7,8,9,10]" value="{{val}}">{{val}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="edit-tab-content" ng-if="ctrl.subTabIndex === 1">
+        <div class="gf-form-group">
+            <h5>Series specific overrides <tip>Regex match example: /server[0-3]/i </tip></h5>
+            <div class="gf-form-inline" ng-repeat="override in ctrl.panel.seriesOverrides" ng-controller="SeriesOverridesCtrl">
+                <div class="gf-form">
+                    <label class="gf-form-label">alias or regex</label>
+                </div>
+                <div class="gf-form width-15">
+                    <input type="text" ng-model="override.alias" bs-typeahead="getSeriesNames" ng-blur="ctrl.render()" data-min-length=0 data-items=100 class="gf-form-input width-15">
+                </div>
+                <div class="gf-form" ng-repeat="option in currentOverrides">
+                    <label class="gf-form-label">
+                        <i class="pointer fa fa-remove" ng-click="removeOverride(option)"></i>
+                        <span ng-show="option.propertyName === 'color'">
+                            Color: <i class="fa fa-circle" ng-style="{color:option.value}"></i>
+                        </span>
+                        <span ng-show="option.propertyName !== 'color'">
+                            {{option.name}}: {{option.value}}
+                        </span>
+                    </label>
+                </div>
+
+                <div class="gf-form">
+                    <span class="dropdown" dropdown-typeahead="overrideMenu" dropdown-typeahead-on-select="setOverride($item, $subItem)">
+                    </span>
+                </div>
+
+                <div class="gf-form gf-form--grow">
+                    <div class="gf-form-label gf-form-label--grow"></div>
+                </div>
+
+                <div class="gf-form">
+                    <label class="gf-form-label">
+                        <i class="fa fa-trash pointer" ng-click="ctrl.removeSeriesOverride(override)"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-inverse" ng-click="ctrl.addSeriesOverride()">
+            <i class="fa fa-plus"></i>&nbsp;Add override
+        </button>
+    </div>
+</div>

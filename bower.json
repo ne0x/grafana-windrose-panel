@@ -1,0 +1,11 @@
+{
+  "name": "wind-rose-panel",
+  "authors": "",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "Apache 2.0",
+  "dependencies": {
+    "d3": "~3.5.0"
+  }
+}

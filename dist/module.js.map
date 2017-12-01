@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/module.js"],"names":["_","WindRoseCtrl"],"mappings":";;;;;;;;;AAAOA,O;;AACCC,kB,mBAAAA,Y;;;2BAKNA,Y","file":"module.js","sourcesContent":["import _ from 'lodash';\nimport {WindRoseCtrl} from './wind_rose_ctrl';\nimport './wind_rose';\nimport './series_overrides_ctrl';\n\nexport {\n  WindRoseCtrl as PanelCtrl\n};\n"]}
