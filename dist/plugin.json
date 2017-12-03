@@ -1,16 +1,28 @@
 {
   "type": "panel",
   "name": "WindRose",
-  "id": "n-wind-rose-panel",
+  "id": "ksz-wind-rose-panel",
 
   "info": {
     "description": "Wind Rose Panel for Grafana",
     "author": {
-      "name": "Intspirit"
+      "name": "Kantonsschule Zug"
+    },
+	"links": [
+      {"name": "GitHub", "url": "https://github.com/ne0x/grafana-windrose-panel"},
+      {"name": "License", "url": "https://github.com/ne0x/grafana-windrose-panel/blob/master/LICENSE"},
+      {"name": "Intspirit", "url": "http://intspirit.com"}
+    ],
+	"screenshots": [
+      { "name": "Sample Views", "path": "img/screenshots/windrose.png"}
+    ],
+	"logos": {
+      "small": "img/windrose.svg",
+      "large": "img/windrose.svg"
     },
     "keywords": ["windrose", "panel"],
-    "version": "1.0.0",
-    "updated": "2017-03-21"
+    "version": "1.1.1",
+    "updated": "2017-12-01"
   },
 
   "dependencies": {

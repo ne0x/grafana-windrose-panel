@@ -1,0 +1,1394 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 1,
+  "hideControls": false,
+  "id": 14,
+  "links": [],
+  "refresh": false,
+  "rows": [
+    {
+      "collapse": false,
+      "height": -375,
+      "panels": [
+        {
+          "datasource": "collectd_db (weather)",
+          "id": 17,
+          "links": [],
+          "seriesOverrides": [
+            {
+              "alias": "wind_speed_max[speed_max]",
+              "color": "#962D82",
+              "zindex": -1
+            }
+          ],
+          "span": 4,
+          "targets": [
+            {
+              "alias": "wind_dir_avg[direction]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_dir_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "wind_speed_avg[speed_main]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "wind_speed_max[speed_max]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_max"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "temp_air[color]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "temp_air"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Wind Rose (with peaks)",
+          "type": "ksz-wind-rose-panel",
+          "windRoseOptions": {
+            "alphaBlending": true,
+            "alphaBlendingMinOpacity": 0.1,
+            "axisFrequency": "15",
+            "axisName": "Windspeed, m/s",
+            "axisStyle": "2",
+            "chartColorFrom": "#0000ff",
+            "chartColorTo": "#ff0000",
+            "chartColors": [
+              {
+                "val": "#0000ff"
+              }
+            ],
+            "chartOpacity": 1,
+            "dotColorFrom": "#000000",
+            "dotColorTo": "#14f700",
+            "dotColors": [
+              {
+                "val": "#0500b0"
+              },
+              {
+                "val": "#00b027"
+              },
+              {
+                "val": "#d43300"
+              },
+              {
+                "val": "#ff0000"
+              }
+            ],
+            "dotStyle": "1",
+            "gradientBasedOn": "temp_air",
+            "labelCardinalCompass": true,
+            "labelCompassRose": false,
+            "labelCompassRoseOpacity": 0.4,
+            "labelCompassRoseSize": 0.8,
+            "labelDegrees": true,
+            "labelIntercardinalCompass": true,
+            "lastPointColor": "#000000",
+            "maxV": "",
+            "numOfDirections": "4",
+            "peakTypeBar": true,
+            "peakTypeLine": false,
+            "peakTypeLineFill": "0",
+            "peakTypeLineWidth": "1",
+            "peakTypePoints": true,
+            "peakTypePointsRadius": "4",
+            "percentsPosition": 45,
+            "scale": "linear",
+            "showPercents": true,
+            "windRoseType": "1",
+            "windSpeedStep": 0.5
+          }
+        },
+        {
+          "datasource": "collectd_db (weather)",
+          "id": 21,
+          "links": [],
+          "seriesOverrides": [
+            {
+              "alias": "wind_speed_max[speed_max]",
+              "color": "#BF1B00",
+              "zindex": -1
+            },
+            {
+              "alias": "wind_speed_min[speed_min]",
+              "color": "#0A437C",
+              "zindex": 1
+            },
+            {
+              "alias": "wind_speed_avg[speed_avg]",
+              "color": "#7EB26D"
+            }
+          ],
+          "span": 4,
+          "targets": [
+            {
+              "alias": "wind_dir_avg[direction]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_dir_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "wind_speed_avg[speed_avg]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "wind_speed_max[speed_max]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_max"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "wind_speed_min[speed_min]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_min"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Wind Rose (with peaks) min/max",
+          "type": "ksz-wind-rose-panel",
+          "windRoseOptions": {
+            "alphaBlending": true,
+            "alphaBlendingMinOpacity": 0,
+            "axisFrequency": "15",
+            "axisName": "Windspeed, m/s",
+            "axisStyle": "2",
+            "chartColorFrom": "#0000ff",
+            "chartColorTo": "#ff0000",
+            "chartColors": [
+              {
+                "val": "#0000ff"
+              }
+            ],
+            "chartOpacity": 1,
+            "dotColorFrom": "#000000",
+            "dotColorTo": "#14f700",
+            "dotColors": [
+              {
+                "val": "#000000"
+              },
+              {
+                "val": "#577504"
+              },
+              {
+                "val": "#ff5f00"
+              }
+            ],
+            "dotStyle": "1",
+            "gradientBasedOn": "age",
+            "labelCardinalCompass": true,
+            "labelCompassRose": false,
+            "labelCompassRoseOpacity": 0.4,
+            "labelCompassRoseSize": 0.8,
+            "labelDegrees": true,
+            "labelIntercardinalCompass": true,
+            "lastPointColor": "#1700ff",
+            "maxV": null,
+            "numOfDirections": "4",
+            "peakTypeBar": false,
+            "peakTypeLine": true,
+            "peakTypeLineFill": "0",
+            "peakTypeLineWidth": "1",
+            "peakTypePoints": true,
+            "peakTypePointsRadius": "2",
+            "percentsPosition": 45,
+            "scale": "log2",
+            "showPercents": true,
+            "windRoseType": "1",
+            "windSpeedStep": 0.5
+          }
+        },
+        {
+          "datasource": "collectd_db (weather)",
+          "id": 22,
+          "links": [],
+          "seriesOverrides": [],
+          "span": 4,
+          "targets": [
+            {
+              "alias": "[direction]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_dir_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "[speed_main]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Wind Rose",
+          "type": "ksz-wind-rose-panel",
+          "windRoseOptions": {
+            "alphaBlending": true,
+            "alphaBlendingMinOpacity": 0.3,
+            "axisFrequency": "15",
+            "axisName": "Windspeed, m/s",
+            "axisStyle": "2",
+            "chartColorFrom": "#0000ff",
+            "chartColorTo": "#ff0000",
+            "chartColors": [
+              {
+                "val": "#0000d4"
+              },
+              {
+                "val": "#00bf6f"
+              },
+              {
+                "val": "#56bf04"
+              },
+              {
+                "val": "#ffc700"
+              },
+              {
+                "val": "#ff0000"
+              }
+            ],
+            "chartOpacity": 0.85,
+            "dotColorFrom": "#0f00b5",
+            "dotColorTo": "#0b8500",
+            "dotColors": [
+              {
+                "val": "#000000"
+              }
+            ],
+            "dotStyle": "2",
+            "gradientBasedOn": "2",
+            "labelCardinalCompass": false,
+            "labelCompassRose": true,
+            "labelCompassRoseOpacity": 0.4,
+            "labelCompassRoseSize": 0.7,
+            "labelDegrees": true,
+            "labelIntercardinalCompass": false,
+            "lastPointColor": "#c21300",
+            "maxV": "",
+            "numOfDirections": "8",
+            "peakTypeBar": false,
+            "peakTypeLine": true,
+            "peakTypeLineFill": "0",
+            "peakTypeLineWidth": "1",
+            "peakTypePoints": false,
+            "peakTypePointsRadius": "4",
+            "percentsPosition": 45,
+            "scale": "log2",
+            "showPercents": true,
+            "windRoseType": "2",
+            "windSpeedStep": "0.5"
+          }
+        },
+        {
+          "datasource": "collectd_db (weather)",
+          "id": 19,
+          "links": [],
+          "seriesOverrides": [],
+          "span": 4,
+          "targets": [
+            {
+              "alias": "wind_dir_avg[direction]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_dir_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "wind_speed_avg[speed_main]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "rain_duration[color]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "rain_duration"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Wind Rose log(base 2)",
+          "type": "ksz-wind-rose-panel",
+          "windRoseOptions": {
+            "alphaBlending": true,
+            "alphaBlendingMinOpacity": 0.2,
+            "axisFrequency": "45",
+            "axisName": "Windspeed, m/s",
+            "axisStyle": "2",
+            "chartColorFrom": "#0000ff",
+            "chartColorTo": "#00ff19",
+            "chartColors": [
+              {
+                "val": "#0000ff"
+              }
+            ],
+            "chartOpacity": 1,
+            "dotColorFrom": "#0f00b5",
+            "dotColorTo": "#0b8500",
+            "dotColors": [
+              {
+                "val": "#3d8a0c"
+              },
+              {
+                "val": "#000000"
+              }
+            ],
+            "dotStyle": "2",
+            "gradientBasedOn": "rain_duration",
+            "labelCardinalCompass": true,
+            "labelCompassRose": false,
+            "labelCompassRoseOpacity": 0.6,
+            "labelCompassRoseSize": 0.8,
+            "labelDegrees": false,
+            "labelIntercardinalCompass": true,
+            "lastPointColor": "#d90000",
+            "maxV": "",
+            "numOfDirections": "16",
+            "peakTypeBar": false,
+            "peakTypeLine": true,
+            "peakTypeLineFill": "0",
+            "peakTypeLineWidth": "1",
+            "peakTypePoints": false,
+            "peakTypePointsRadius": "4",
+            "percentsPosition": "135",
+            "scale": "log2",
+            "showPercents": true,
+            "windRoseType": "1",
+            "windSpeedStep": "0.5"
+          }
+        },
+        {
+          "datasource": "collectd_db (weather)",
+          "id": 18,
+          "links": [],
+          "seriesOverrides": [],
+          "span": 4,
+          "targets": [
+            {
+              "alias": "wind_dir_avg[direction]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_dir_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "wind_speed_avg[speed_main]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "rain_intensity[color]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "rain_intensity"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Wind Rose log(base2) colored",
+          "type": "ksz-wind-rose-panel",
+          "windRoseOptions": {
+            "alphaBlending": true,
+            "alphaBlendingMinOpacity": 0.2,
+            "axisFrequency": "15",
+            "axisName": "Windspeed, m/s",
+            "axisStyle": "2",
+            "chartColorFrom": "#0000ff",
+            "chartColorTo": "#ff0000",
+            "chartColors": [
+              {
+                "val": "#0000ff"
+              }
+            ],
+            "chartOpacity": 1,
+            "dotColorFrom": "#0f00b5",
+            "dotColorTo": "#0b8500",
+            "dotColors": [
+              {
+                "val": "#0300c4"
+              },
+              {
+                "val": "#00b332"
+              },
+              {
+                "val": "#ff0000"
+              }
+            ],
+            "dotStyle": "2",
+            "gradientBasedOn": "rain_intensity",
+            "labelCardinalCompass": false,
+            "labelCompassRose": true,
+            "labelCompassRoseOpacity": 0.6,
+            "labelCompassRoseSize": 0.9,
+            "labelDegrees": true,
+            "labelIntercardinalCompass": false,
+            "lastPointColor": "#000000",
+            "maxV": "",
+            "numOfDirections": "4",
+            "peakTypeBar": false,
+            "peakTypeLine": true,
+            "peakTypeLineFill": "0",
+            "peakTypeLineWidth": "1",
+            "peakTypePoints": false,
+            "peakTypePointsRadius": "4",
+            "percentsPosition": 45,
+            "scale": "log2",
+            "showPercents": true,
+            "windRoseType": "1",
+            "windSpeedStep": 0.5
+          }
+        },
+        {
+          "datasource": "collectd_db (weather)",
+          "id": 20,
+          "links": [],
+          "seriesOverrides": [],
+          "span": 4,
+          "targets": [
+            {
+              "alias": "[direction]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_dir_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            },
+            {
+              "alias": "[speed_main]",
+              "delta": true,
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "auto"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "wxt_value",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type_instance",
+                  "operator": "=",
+                  "value": "wind_speed_avg"
+                },
+                {
+                  "condition": "AND",
+                  "key": "instance",
+                  "operator": "=",
+                  "value": "46.234.46.52-4001"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Wind Rose",
+          "type": "ksz-wind-rose-panel",
+          "windRoseOptions": {
+            "alphaBlending": true,
+            "alphaBlendingMinOpacity": 0.3,
+            "axisFrequency": "15",
+            "axisName": "Windspeed, m/s",
+            "axisStyle": "2",
+            "chartColorFrom": "#0000ff",
+            "chartColorTo": "#ff0000",
+            "chartColors": [
+              {
+                "val": "#0f0fbf"
+              },
+              {
+                "val": "#099e60"
+              },
+              {
+                "val": "#58b312"
+              },
+              {
+                "val": "#ff8900"
+              },
+              {
+                "val": "#ff0000"
+              }
+            ],
+            "chartOpacity": 0.85,
+            "dotColorFrom": "#0f00b5",
+            "dotColorTo": "#0b8500",
+            "dotColors": [
+              {
+                "val": "#000000"
+              }
+            ],
+            "dotStyle": "2",
+            "gradientBasedOn": "2",
+            "labelCardinalCompass": false,
+            "labelCompassRose": true,
+            "labelCompassRoseOpacity": 0.4,
+            "labelCompassRoseSize": 0.7,
+            "labelDegrees": true,
+            "labelIntercardinalCompass": false,
+            "lastPointColor": "#c21300",
+            "maxV": "",
+            "numOfDirections": "32",
+            "peakTypeBar": false,
+            "peakTypeLine": true,
+            "peakTypeLineFill": "0",
+            "peakTypeLineWidth": "1",
+            "peakTypePoints": false,
+            "peakTypePointsRadius": "4",
+            "percentsPosition": 45,
+            "scale": "log2",
+            "showPercents": true,
+            "windRoseType": "2",
+            "windSpeedStep": "0.5"
+          }
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Row",
+      "titleSize": "h6"
+    }
+  ],
+  "schemaVersion": 14,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-48h",
+    "to": "now+12h"
+  },
+  "timepicker": {
+    "now": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "Wind Rose GitHub",
+  "version": 1
+}
