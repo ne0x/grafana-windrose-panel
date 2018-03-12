@@ -1,7 +1,7 @@
 {
   "type": "panel",
   "name": "WindRose",
-  "id": "ksz-wind-rose-panel",
+  "id": "n-wind-rose-panel",
 
   "info": {
     "description": "Wind Rose Panel for Grafana",
